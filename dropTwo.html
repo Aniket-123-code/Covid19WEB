@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top drop downs</title>
+</head>
+<style>
+    body {
+      background-color: rgba(201, 76, 76, 0.3);
+    }
+    </style>
+<body>
+    <script>
+        var subjectObject = {
+          "Summer-end": {
+            "MP": ["Bhopal", "Indore", "Ujain", "Orchha"],
+            "UP": ["Jhashi", "Mandu", "Agra", "Mathura"],
+            "Delhi": ["Metro Line", "LotusTemple", "PremMandir", "IndiaGate"]    
+          },
+          "Winter-end": {
+            "J&k": ["Jammu", "Katra", "MaaVishoDevi"],
+            "HimanchalPradesh": ["Kullu-manali", "Manali", "Shimla"]
+          }
+        }
+        window.onload = function() {
+          var WeatherSel = document.getElementById("weather");
+          var ChoiceSel = document.getElementById("choice");
+          var PlaceSel = document.getElementById("place");
+          for (var x in subjectObject) {
+            WeatherSel.options[WeatherSel.options.length] = new Option(x, x);
+          }
+          WeatherSel.onchange = function() {
+            //empty Chapters- and Topics- dropdowns
+            PlaceSel.length = 1;
+            ChoiceSel.length = 1;
+            //display correct values
+            for (var y in subjectObject[this.value]) {
+              ChoiceSel.options[ChoiceSel.options.length] = new Option(y, y);
+            }
+          }
+          ChoiceSel.onchange = function() {
+            //empty Chapters dropdown
+            PlaceSel.length = 1;
+            //display correct values
+            var z = subjectObject[WeatherSel.value][this.value];
+            for (var i = 0; i < z.length; i++) {
+              PlaceSel.options[PlaceSel.options.length] = new Option(z[i], z[i]);
+            }
+          }
+        }
+        </script>
+        </head>   
+        <body>
+        
+        <h1 style="text-align: center;">State and Visitor Dropdown </h1>
+        
+        <form name="form1" id="form1" action="/action_page.php">
+        WeatherSel: <select name="weather" id="weather">
+            <option value="" selected="selected">Select weather</option>
+          </select>
+          <br><br>
+        ChoiceSel: <select name="choice" id="choice">
+            <option value="" selected="selected">Please select choice first</option>
+          </select>
+          <br><br>
+          PlaceSel: <select name="place" id="place">
+            <option value="" selected="selected">Please select place first</option>
+          </select>
+          <br><br>
+          <input type="submit" value="Submit">  
+        </form>
+        
+        
+    
+</body>
+</html>

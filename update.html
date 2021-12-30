@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1 style="text-align: center;">Covid19 Tracker using fetch api</h1>
+   <form id="myForm">
+   <input type="text" id="State" placeholder="State Name" required>
+   <input type="submit" value="Get Data">
+   <h1 id="confirmed">Total Confirmed:</h1>
+   <h1 id="recovered">Total Recovered:</h1>
+   <h1 id="deaths">Total Deaths:</h1>
+</form>
+</body>
+<script>
+    var myForm = document.getElementById('myForm')
+    myForm.addEventListener('sumbit',function(e){
+        e.preventDefault()
+        var state = document.getElementById('state').value
+    var url = "https://www.covid19india.org/"+state
+
+    fetch(url)
+    .then((res) => res.json())
+    .then((res) => console.log(res))
+    })
+
+   
+   
+</script>
+</html>

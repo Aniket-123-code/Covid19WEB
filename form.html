@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  margin: 20px auto;
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: 1.25rem;
+  background-color: gray;
+}
+
+form, p {
+  margin: 20px;
+}
+
+p.note {
+  font-size: 1rem;
+  color: red;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-left: 20px;
+  padding: 4px;
+  margin-bottom: 20px;
+  font-family: 'Lato';
+  width: 300px;
+}
+
+label {
+  width: 250px;
+  display: inline-block;
+}
+
+        </style>
+</head>
+<body>
+    <p style="text-align: center;" class="note">Create a form  Basic information.</p>
+<form>
+  <label for="name">Name: *</label>
+  <input type="text" id="name" name="name" pattern="[a-zA-Z]+" placeholder="Monty" required>
+  <br>
+  <label for="name"> Email Address: *</label>
+  <input type="email" id="email" name="email" placeholder="joe@company.com" pattern=".+@company\.com" required>
+  <br>
+  <label for="name">Mobile Number: </label>
+  
+  <input type="text" name='mobile_number' pattern=[0-9]{1}[0-9]{9}>
+ <br>
+ <label for="name">Pincode: *</label>
+ <input type="text" id="pcode" name="pcode" pattern="[0-9]+" minlength="6" maxlength="6" >
+ <br>
+
+ <textarea rows="4" cols="50" maxlength="250">
+    Text Ares for address...</textarea>
+ <div>
+    <button>Submit</button>
+  </div>
+</form>
+</body>
+</html>
