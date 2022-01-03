@@ -1,8 +1,9 @@
-let array = []
+let array = [];
+
+
 function getStateData(event) {
-	
   event.preventDefault();
-  console.log("event",event)
+  console.log("event", event);
   console.log(":CALLING .....");
   const url = "https://data.covid19india.org/state_district_wise.json";
 
@@ -11,10 +12,8 @@ function getStateData(event) {
       // console.log("url",response);
       if (response.ok) return response.json();
     })
-    .then((data) => {
-      array = data;
-
-      console.log("array", array);
+    .then((actuldata) =>{
+      console.log(actuldata)
     })
     .catch((error) => {
       console.log("error", error);
@@ -22,3 +21,13 @@ function getStateData(event) {
 }
 
 
+function filterStateData(stateName) {
+  array.filter((state) => {
+    return state === stateName
+   
+    
+  });
+
+}
+let Goa = filterStateData("Goa");
+console.log(Goa);
